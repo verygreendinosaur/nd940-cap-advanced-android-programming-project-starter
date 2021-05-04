@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="59b44bab-2cb1-4f7e-9a9f-b9d13812d1b3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/starter/app/src/main/res/layout/list_item_election.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter/app/src/main/java/com/example/android/politicalpreparedness/election/ElectionsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/starter/app/src/main/java/com/example/android/politicalpreparedness/election/ElectionsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter/app/src/main/java/com/example/android/politicalpreparedness/election/ElectionsViewModelFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/starter/app/src/main/java/com/example/android/politicalpreparedness/election/ElectionsViewModelFactory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter/app/src/main/java/com/example/android/politicalpreparedness/election/VoterInfoFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/starter/app/src/main/java/com/example/android/politicalpreparedness/election/VoterInfoFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter/app/src/main/java/com/example/android/politicalpreparedness/election/VoterInfoViewModelFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/starter/app/src/main/java/com/example/android/politicalpreparedness/election/VoterInfoViewModelFactory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter/app/src/main/java/com/example/android/politicalpreparedness/election/adapter/ElectionListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/starter/app/src/main/java/com/example/android/politicalpreparedness/election/adapter/ElectionListAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter/app/src/main/java/com/example/android/politicalpreparedness/launch/LaunchFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/starter/app/src/main/java/com/example/android/politicalpreparedness/launch/LaunchFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter/app/src/main/java/com/example/android/politicalpreparedness/representative/RepresentativeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/starter/app/src/main/java/com/example/android/politicalpreparedness/representative/RepresentativeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter/app/src/main/res/layout/fragment_launch.xml" beforeDir="false" afterPath="$PROJECT_DIR$/starter/app/src/main/res/layout/fragment_launch.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter/app/src/main/res/navigation/nav_graph.xml" beforeDir="false" afterPath="$PROJECT_DIR$/starter/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/starter/local.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1rRmxka8DePxdY8L6eZhO8x8MIg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="59b44bab-2cb1-4f7e-9a9f-b9d13812d1b3" name="Default Changelist" comment="" />
+      <created>1618947524714</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618947524714</updated>
+    </task>
+    <servers />
+  </component>
+</project>

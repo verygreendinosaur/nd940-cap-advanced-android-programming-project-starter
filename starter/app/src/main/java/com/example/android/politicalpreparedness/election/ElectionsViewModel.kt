@@ -1,16 +1,34 @@
 package com.example.android.politicalpreparedness.election
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
+import com.example.android.politicalpreparedness.base.BaseViewModel
+import com.example.android.politicalpreparedness.database.ElectionDao
+import com.example.android.politicalpreparedness.network.models.Election
+import com.example.android.politicalpreparedness.repository.CivicsRepository
+import kotlinx.coroutines.launch
 
-//TODO: Construct ViewModel and provide election datasource
-class ElectionsViewModel: ViewModel() {
 
-    //TODO: Create live data val for upcoming elections
+class ElectionsViewModel(val database: ElectionDao, application: Application): BaseViewModel(application) {
 
-    //TODO: Create live data val for saved elections
+    private val civicsRepo = CivicsRepository(database)
 
-    //TODO: Create val and functions to populate live data for upcoming elections from the API and saved elections from local database
+    val elections: MutableLiveData<List<Election>> = MutableLiveData()
+    val savedElections: LiveData<List<Election>> = civicsRepo.savedElections
 
-    //TODO: Create functions to navigate to saved or upcoming election voter info
+    init {
+        fetchElections()
+    }
+
+    fun fetchElections() {
+        viewModelScope.launch {
+            try {
+                var result = civicsRepo.getElections()
+                elections.postValue(result)
+            } catch (e: Exception) {
+                showToastFromString.value = "Something went wrong while fetching elections. Please try again later."
+            }
+        }
+    }
 
 }

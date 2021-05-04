@@ -1,26 +1,78 @@
 package com.example.android.politicalpreparedness.representative
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
+import com.example.android.politicalpreparedness.base.BaseViewModel
+import com.example.android.politicalpreparedness.database.ElectionDao
+import com.example.android.politicalpreparedness.network.models.Address
+import com.example.android.politicalpreparedness.repository.CivicsRepository
+import com.example.android.politicalpreparedness.representative.model.Representative
+import kotlinx.coroutines.launch
+import java.lang.Exception
 
-class RepresentativeViewModel: ViewModel() {
+class RepresentativeViewModel(val database: ElectionDao, application: Application) : BaseViewModel(application) {
 
-    //TODO: Establish live data for representatives and address
+    // region Properties
 
-    //TODO: Create function to fetch representatives from API from a provided address
+    private val civicsRepo = CivicsRepository(database)
 
-    /**
-     *  The following code will prove helpful in constructing a representative from the API. This code combines the two nodes of the RepresentativeResponse into a single official :
+    val representatives: MutableLiveData<List<Representative>> = MutableLiveData()
+    val addressLineOne: MutableLiveData<String> = MutableLiveData<String>("")
+    val addressLineTwo: MutableLiveData<String> = MutableLiveData<String>("")
+    val addressCity: MutableLiveData<String> = MutableLiveData<String>("")
+    val addressState: MutableLiveData<String> = MutableLiveData<String>("")
+    val addressZip: MutableLiveData<String> = MutableLiveData<String>("")
 
-    val (offices, officials) = getRepresentativesDeferred.await()
-    _representatives.value = offices.flatMap { office -> office.getRepresentatives(officials) }
+    // endRegion
 
-    Note: getRepresentatives in the above code represents the method used to fetch data from the API
-    Note: _representatives in the above code represents the established mutable live data housing representatives
+    // region Representatives
 
-     */
+    fun findRepsFromLocation(location: android.location.Address) {
+        addressLineOne.value = location.subThoroughfare + " " + location.thoroughfare
+        addressLineTwo.value = location.getAddressLine(1)
+        addressCity.value = location.locality
+        addressState.value = location.adminArea
+        addressZip.value = location.postalCode
 
-    //TODO: Create function get address from geo location
+        findReps()
+    }
 
-    //TODO: Create function to get address from individual fields
+    fun findReps() {
+        val address = validateAndBuildAddress()
+        if (address == null) {
+            showToastFromString.setValue("Oops -- something went wrong retrieving your location. Please try again later.")
+        } else {
+            fetchRep(address)
+        }
+    }
+
+    private fun fetchRep(address: Address) {
+        viewModelScope.launch {
+            try {
+                val result = civicsRepo.getReps(address)
+                representatives.postValue(result)
+            } catch (e: Exception) {
+            }
+        }
+    }
+
+    // endRegion
+
+    // region Address
+
+    fun validateAndBuildAddress(): Address? {
+        val addressOne = addressLineOne.value
+        val addressCity = addressCity.value
+        val addressState = addressState.value
+        val addressZip = addressZip.value
+
+        if (addressOne != null && addressCity != null && addressState != null && addressZip != null) {
+            return Address(addressOne, addressLineTwo.value, addressCity, addressState, addressZip)
+        } else {
+            return null
+        }
+    }
+
+    // endRegion
 
 }
